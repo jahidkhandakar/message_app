@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "265174171794",
+    "project_id": "message-app-ddcef",
+    "storage_bucket": "message-app-ddcef.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265174171794:android:794e05e08c1bd803c2e64b",
+        "android_client_info": {
+          "package_name": "com.example.message_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcmAbUF3HjRmGQ8rpxjb7Mk_hAWTDBHHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

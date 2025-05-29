@@ -3,7 +3,12 @@ import 'package:message_app/widgets/my_button.dart';
 import 'package:message_app/widgets/my_text_field.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function()? onTap;
+
+  const LoginPage({
+    super.key,
+    this.onTap,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -25,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SafeArea(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
             //*logo_____________________________________________
             const SizedBox(height: 50),
@@ -51,10 +57,34 @@ class _LoginPageState extends State<LoginPage> {
             //*signin-login button______________________________
             MyButton(
               onTap: (){}, 
-              text: 'Sign In'),
+              text: 'Log In'),
             //*not a member? register here______________________
+            const SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Not a member?',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),),
+                const SizedBox(width: 4),
+                InkWell(
+                  onTap: widget.onTap,
+                  //*when tapped, it will toggle to the register page
+                  child: Text('Register here', 
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             ],
-
           ),
         ),
       ),
