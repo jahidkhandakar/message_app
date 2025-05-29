@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:message_app/Auth/auth_controller.dart';
 import 'package:message_app/Auth/auth_gate.dart';
 import 'package:message_app/Auth/login_or_register.dart';
 import 'package:message_app/firebase_options.dart';
@@ -8,9 +9,10 @@ import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 import 'pages/register_page.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  Get.put(AuthController());
   runApp(const MyApp());
 }
 
