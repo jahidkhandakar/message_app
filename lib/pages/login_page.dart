@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:message_app/widgets/my_button.dart';
 import 'package:message_app/widgets/my_text_field.dart';
 
@@ -55,14 +56,35 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 25),
               //*signin-login button______________________________
-              MyButton(
-                onTap: () {
-                  AuthController.to.signIn(
-                    emailController.text,
-                    passwordController.text,
-                  );
-                },
-                text: 'Log In',
+              Obx(
+                () => MyButton(
+                  onTap:
+                      AuthController.to.isLoading.value
+                          ? null
+                          : () {
+                            AuthController.to.signIn(
+                              emailController.text,
+                              passwordController.text,
+                            );
+                          },
+                  text:
+                      AuthController.to.isLoading.value
+                          ? 'Loading...'
+                          : 'Log In',
+                ),
+              ),
+              //*error message if any
+              Obx(
+                () =>
+                    AuthController.to.errorMessage.value.isNotEmpty
+                        ? Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            AuthController.to.errorMessage.value,
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                        )
+                        : const SizedBox.shrink(),
               ),
               //*not a member? register here______________________
               const SizedBox(height: 25),
